@@ -1,0 +1,139 @@
+Methods to Copy a String in C/C++
+1. Using strcpy()
+We can use the inbuilt function strcpy() from <string.h> header file to copy one string to the other. strcpy() accepts a pointer to the destination array and source array as a parameter and after copying it returns a pointer to the destination string.
+
+Syntax
+
+char* strcpy(char* dest, const char* src);
+Example: Program to copy the string using strcpy() function
+
+
+// CPP program to copy the string using
+// strcpy function
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// Function to copy the string
+char* copyString(char s[])
+{
+    char* s2;
+    s2 = (char*)malloc(20);
+ 
+    strcpy(s2, s);
+    return (char*)s2;
+}
+ 
+// Driver Code
+int main()
+{
+    char s1[20] = "GeeksforGeeks";
+    char* s2;
+ 
+    // Function Call
+    s2 = copyString(s1);
+    cout << s2 << endl;
+    return 0;
+}
+
+Complexity Analysis
+
+Time Complexity: O(N)
+Auxiliary Space: O(1)
+
+
+
+
+2. Using memcpy()
+The memcpy() function is also used to copy from source to destination no matter what the source data contains and is defined in <string.h> header and memcpy() require a size parameter to be passed.
+// CPP program to copy the string using
+// memcpy function
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+// Driver Code
+int main()
+{
+	char s1[20] = "GeeksforGeeks";
+	char s2[20];
+
+	// Function
+	memcpy(s2, s1, strlen(s1));
+
+	cout << s2 << endl;
+
+	return 0;
+}
+
+Complexity Analysis
+
+Time Complexity: O(N)
+Auxiliary Space: O(1)
+
+
+3. Using Loops
+The idea is to use a for loop to copy the content of the first character array to the second character array one by one.
+
+
+#include <iostream>
+#include <cstring>
+
+int main() {
+    const char source[] = "Hello, World!";  // Source character array
+    char destination[20];  // Destination character array with enough space
+    
+    // Copying the content of the source array to the destination array using a loop
+    for (int i = 0; i < strlen(source); ++i) {
+        destination[i] = source[i];
+    }
+    
+    destination[strlen(source)] = '\0';  // Null-terminate the destination array
+    
+    // Print the contents of the destination array
+    std::cout << "Destination Array: " << destination << std::endl;
+    
+    return 0;
+}
+
+
+10. Using std::string class (=) Operator
+The easiest way to copy a string is to use the assignment operator (=) of the std::string class to copy the contents of one string to another.
+
+Note: There are no inbuilt classes in C, hence ‘=’ operator is only available in C++.
+
+// CPP program to copy the string
+// using string::assign() method
+
+#include <bits/stdc++.h>
+
+// Function to copy the string
+string copyString(string s)
+{
+    string s2;
+
+    // string::assign() method
+    s2.assign(s);
+
+    return s2;
+}
+
+// Driver Code
+int main()
+{
+    string s1 = "GeeksforGeeks";
+    string s2;
+
+    // Function Call
+    s2 = copyString(s1);
+    cout << s2;
+    return 0;
+}
+
+// This code is contributed by Susobhan Akhuli
+
+
+
+
+
+
+
