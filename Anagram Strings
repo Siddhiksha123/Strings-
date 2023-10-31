@@ -1,0 +1,50 @@
+Check whether strings are anagram or not :
+
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once. Here's how you can check if two strings are anagrams of each other in C++:
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+bool areAnagrams(const string& str1, const string& str2) {
+    // Sort both strings
+    string sortedStr1 = str1;
+    string sortedStr2 = str2;
+    sort(sortedStr1.begin(), sortedStr1.end());
+    sort(sortedStr2.begin(), sortedStr2.end());
+
+    // Compare sorted strings
+    return sortedStr1 == sortedStr2;
+}
+
+int main() {
+    string str1, str2;
+    cout << "Enter the first string: ";
+    cin >> str1;
+    cout << "Enter the second string: ";
+    cin >> str2;
+
+    if (areAnagrams(str1, str2)) {
+        cout << "The strings are anagrams." << endl;
+    } else {
+        cout << "The strings are not anagrams." << endl;
+    }
+
+    return 0;
+}
+
+n this code:
+
+The areAnagrams function takes two strings as input parameters.
+It creates two copies of the input strings and sorts them using std::sort.
+The sorted strings are then compared. If the sorted strings are equal, the original strings are anagrams.
+The program prompts the user to enter two strings and then checks if they are anagrams or not.
+
+
+
+
+
+
+
