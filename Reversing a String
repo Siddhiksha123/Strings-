@@ -1,0 +1,76 @@
+Approach 1: Using a Loop
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string reverseString(const string& input) {
+    string reversed = "";
+    for (int i = input.length() - 1; i >= 0; --i) {
+        reversed += input[i];
+    }
+    return reversed;
+}
+
+int main() {
+    string input = "Hello, World!";
+    string reversed = reverseString(input);
+    cout << "Reversed String: " << reversed << endl;
+    return 0;
+}
+
+
+
+Approach 2: Using std::reverse Algorithm
+
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+string reverseString(string input) {
+    reverse(input.begin(), input.end());
+    return input;
+}
+
+int main() {
+    string input = "Hello, World!";
+    string reversed = reverseString(input);
+    cout << "Reversed String: " << reversed << endl;
+    return 0;
+}
+
+
+
+
+Approach 3: Using Recursion
+
+#include <iostream>
+
+using namespace std;
+
+void reverseString(char* input, int left, int right) {
+    if (left >= right) {
+        return;
+    }
+    swap(input[left], input[right]);
+    reverseString(input, left + 1, right - 1);
+}
+
+int main() {
+    char input[] = "Hello, World!";
+    int length = 0;
+    while (input[length] != '\0') {
+        length++;
+    }
+
+    reverseString(input, 0, length - 1);
+    cout << "Reversed String: " << input << endl;
+    return 0;
+}
+
+
+
+
+
