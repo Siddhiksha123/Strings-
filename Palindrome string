@@ -1,0 +1,142 @@
+1. Reverse and check using reverse function .
+Algorithm
+Copy the string S to another string, say P, and then reverse the string S.
+Now check if the string S is equal to the string P and then print “Yes“. Otherwise, print “No“.
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// Function to check whether
+// the string is palindrome
+string isPalindrome(string S)
+{
+    // Stores the reverse of the
+    // string S
+    string P = S;
+ 
+    // Reverse the string P
+    reverse(P.begin(), P.end());
+ 
+    // If S is equal to P
+    if (S == P) {
+        // Return "Yes"
+        return "Yes";
+    }
+    // Otherwise
+    else {
+        // return "No"
+        return "No";
+    }
+}
+ 
+// Driver Code
+int main()
+{
+    string S = "ABCDCBA";
+    cout << isPalindrome(S);
+ 
+    return 0;
+}
+
+Complexity Analysis
+Time Complexity: O(N)
+Auxiliary Space: O(N)
+
+
+
+Method 2: By Traversing the String
+The above approach can be optimized in space complexity by traversing the string and checking whether the character at the ith index is equal to the character at the (N-i-1)th index for every index in the range [0, N/2]
+Algorithm
+Iterate over the range [0, N/2], using the variable i, and in each iteration check if the character at index i and N-i-1 are not equal, then print “No” and break.
+If none of the above cases satisfy, then print “Yes“.
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// Function to check whether string
+// is palindrome
+string isPalindrome(string S)
+{
+    // Iterate over the range [0, N/2]
+    for (int i = 0; i < S.length() / 2; i++) {
+ 
+        // If S[i] is not equal to
+        // the S[N-i-1]
+        if (S[i] != S[S.length() - i - 1]) {
+            // Return No
+            return "No";
+        }
+    }
+    // Return "Yes"
+    return "Yes";
+}
+ 
+// Driver Code
+int main()
+{
+    string S = "ABCDCBA";
+    cout << isPalindrome(S);
+ 
+    return 0;
+}
+
+
+Complexity Analysis
+Time Complexity: O(N)
+Auxiliary Space: O(1)
+
+
+
+SPECIAL CASES
+
+// CHECKING PALINDROME STRING CONTAINING WHITE SPACES 
+eg. too hot to hoot
+
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+bool isPalindrome(const string& input) {
+    int left = 0;
+    int right = input.length() - 1;
+    while (left < right) {
+        // Skip white spaces
+        while (left < right && isspace(input[left])) {
+            left++;
+        }
+        while (left < right && isspace(input[right])) {
+            right--;
+        }
+        // Compare characters (ignoring case)
+        if (tolower(input[left]) != tolower(input[right])) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);  // Allowing spaces in the input string
+
+    if (isPalindrome(input)) {
+        cout << "The string is a palindrome." << endl;
+    } else {
+        cout << "The string is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+
+In this code, the isPalindrome function checks if the input string is a palindrome while ignoring white spaces. It uses two pointers, left and right, which move towards each other, skipping white spaces using the isspace function. The tolower function is used to ignore the case while comparing characters. The function returns true if the string is a palindrome and false otherwise.
+
+Note: getline(cin, input) is used to read the entire line, including white spaces, as input from the user.
+
+
+
+
