@@ -64,3 +64,37 @@ int main() {
 
     return 0;
 }
+
+
+
+
+Using ASCII VALUES 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input); // Use getline to read the entire line with spaces
+
+    // Convert each character in the string to uppercase using ASCII codes and formula
+    for (char &c : input) {
+        if (c >= 'a' && c <= 'z') {
+            c = c - 32; // Convert lowercase to uppercase using ASCII codes
+        }
+    }
+    cout << "Uppercase: " << input << endl;
+
+    // Convert each character in the string to lowercase using ASCII codes and formula
+    for (char &c : input) {
+        if (c >= 'A' && c <= 'Z') {
+            c = c + 32; // Convert uppercase to lowercase using ASCII codes
+        }
+    }
+    cout << "Lowercase: " << input << endl;
+
+    return 0;
+}
+
