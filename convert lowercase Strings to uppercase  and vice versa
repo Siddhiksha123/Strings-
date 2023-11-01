@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    // Convert each character in the string to uppercase
+    for (char &c : input) {
+        c = toupper(c);
+    }
+    cout << "Uppercase: " << input << endl;
+
+    // Convert each character in the string to lowercase
+    for (char &c : input) {
+        c = tolower(c);
+    }
+    cout << "Lowercase: " << input << endl;
+
+    return 0;
+}
+
+
+
+Enter a string: Swati Yadav
+Uppercase: SWATI
+Lowercase: swati
+
+
+
+
+for 
+
+Enter a string: Swati Yadav
+Uppercase: SWATI YADAV
+Lowercase: swati yadav
+
+
+
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input); // Use getline to read the entire line with spaces
+
+    // Convert the entire string to uppercase
+    for (char &c : input) {
+        c = toupper(c);
+    }
+    cout << "Uppercase: " << input << endl;
+
+    // Convert the entire string to lowercase
+    for (char &c : input) {
+        c = tolower(c);
+    }
+    cout << "Lowercase: " << input << endl;
+
+    return 0;
+}
