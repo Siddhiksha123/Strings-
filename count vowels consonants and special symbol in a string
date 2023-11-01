@@ -34,3 +34,45 @@ int main() {
     return 0;
 }
 
+
+
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input); // Use getline to read the entire line with spaces
+
+    int vowels = 0, consonants = 0, specialSymbols = 0;
+
+    for (char c : input) {
+        // Convert the character to lowercase for case-insensitive comparison
+        char lowercaseChar = tolower(c);
+
+        switch (lowercaseChar) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                vowels++;
+                break;
+            default:
+                if (isalpha(lowercaseChar)) {
+                    consonants++;
+                } else {
+                    specialSymbols++;
+                }
+        }
+    }
+
+    cout << "Number of vowels: " << vowels << endl;
+    cout << "Number of consonants: " << consonants << endl;
+    cout << "Number of special symbols: " << specialSymbols << endl;
+
+    return 0;
+}
+
