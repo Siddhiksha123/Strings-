@@ -1,0 +1,9 @@
+#include <iostream>
+
+int main() {
+    char character = 'B';
+    int asciiValue = static_cast<int>(character);
+    std::cout << "ASCII value of " << character << " is: " << asciiValue << std::endl;
+
+    return 0;
+}
