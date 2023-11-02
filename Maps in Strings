@@ -1,0 +1,117 @@
+// Accessing elements in the string with map
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main() {
+    map<string, int> myMap;
+    myMap["one"] = 1;
+    myMap["two"] = 2;
+    myMap["three"] = 3;
+
+    // Accessing elements using iterators
+    for (auto it = myMap.begin(); it != myMap.end(); ++it) {
+        cout << "Key: " << it->first << ", Value: " << it->second << endl;
+    }
+
+    return 0;
+}
+
+
+
+//different types of maps in c++
+
+In C++, the Standard Library provides several types of map-like associative containers. Each of these containers offers different features and performance characteristics to suit specific use cases. Here are some of the most commonly used map-like containers in C++:
+
+1. std::map:
+
+Implemented as a balanced binary search tree.
+Provides key-value pairs sorted by keys in ascending order.
+Insertion, deletion, and search operations have a time complexity of O(log n).
+Suitable for general-purpose use when the order of keys matters.
+
+code:
+#include <map>
+std::map<KeyType, ValueType> myMap;
+
+
+
+
+2. std::unordered_map:
+
+Implemented as a hash table.
+Provides key-value pairs without any specific order.
+Insertion, deletion, and search operations have an average time complexity of O(1).
+Suitable for general-purpose use when the order of keys doesn't matter, and fast lookups are required.
+
+code:
+#include <unordered_map>
+std::unordered_map<KeyType, ValueType> myMap;
+
+
+
+3.  std::multimap:
+
+Implemented as a balanced binary search tree.
+Allows multiple elements with the same key.
+Provides key-value pairs sorted by keys in ascending order.
+Insertion, deletion, and search operations have a time complexity of O(log n).
+Suitable when you need to store multiple elements with the same key.
+
+
+code:
+#include <map>
+std::multimap<std::string, int> myMultiMap;
+myMultiMap.insert({"one", 1});
+myMultiMap.insert({"two", 2});
+myMultiMap.insert({"one", 3}); // Allows duplicate keys
+
+
+
+
+4. std::unordered_multimap:
+Implemented as a hash table.
+Allows multiple elements with the same key.
+Provides key-value pairs without any specific order.
+Insertion, deletion, and search operations have an average time complexity of O(1).
+Suitable when you need to store multiple elements with the same key and fast lookups are required.
+
+code:
+
+#include <unordered_map>
+std::unordered_multimap<std::string, int> myUnorderedMultiMap;
+myUnorderedMultiMap.insert({"one", 1});
+myUnorderedMultiMap.insert({"two", 2});
+myUnorderedMultiMap.insert({"one", 3}); // Allows duplicate keys
+
+
+
+5. std::set:
+Implemented as a balanced binary search tree.
+Stores unique keys in sorted order.
+Insertion, deletion, and search operations have a time complexity of O(log n).
+Suitable when you only need to store keys without associated values.
+
+
+code:
+#include <set>
+std::set<std::string> mySet;
+mySet.insert("one");
+mySet.insert("two");
+mySet.insert("three");
+
+
+6. std::unordered_set:
+Implemented as a hash table.
+Stores unique keys without any specific order.
+Insertion, deletion, and search operations have an average time complexity of O(1).
+Suitable when you only need to store keys without associated values and fast lookups are required.
+
+
+code:
+#include <unordered_set>
+std::unordered_set<std::string> myUnorderedSet;
+myUnorderedSet.insert("one");
+myUnorderedSet.insert("two");
+myUnorderedSet.insert("three");
