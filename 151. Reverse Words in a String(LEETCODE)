@@ -1,0 +1,138 @@
+Question is Reverse words in a string .
+Eg . Input: I am Swati
+Output: Swati am I 
+
+CODE:
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    // Input string
+    string input_string;
+
+    // Read input string at runtime
+    cout << "Enter a string: ";
+    getline(cin, input_string);
+
+    // Vector to store words
+    vector<string> words;
+
+    // Temporary word storage
+    string word;
+
+    // Loop through the input string
+    for (char ch : input_string) {
+        if (ch != ' ') {
+            // If character is not a space, append it to the current word
+            word += ch;
+        } else {
+            // If character is a space, push the current word to the vector
+            words.push_back(word);
+            // Clear the word for the next word
+            word.clear();
+        }
+    }
+
+    // Push the last word to the vector
+    words.push_back(word);
+
+    // Reverse the vector of words
+    reverse(words.begin(), words.end());
+
+    // Output the reversed words separated by single space
+    for (const string& w : words) {
+        cout << w << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+Also there should be only single space between two words .
+Eg. You are    beautiful .
+Output: beautiful are You 
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    // Input string
+    string input_string;
+
+    // Read input string at runtime
+    cout << "Enter a string: ";
+    getline(cin, input_string);
+
+    // Vector to store words
+    vector<string> words;
+
+    // Temporary word storage
+    string word;
+
+    // Flag to keep track of space encountered
+    bool space_encountered = false;
+
+    // Loop through the input string
+    for (char ch : input_string) {
+        if (ch != ' ') {
+            // If character is not a space, append it to the current word
+            word += ch;
+            space_encountered = false;
+        } else {
+            // If character is a space, and space is not encountered before, push the current word to the vector
+            if (!space_encountered) {
+                words.push_back(word);
+                space_encountered = true;
+            }
+            // Clear the word for the next word
+            word.clear();
+        }
+    }
+
+    // Push the last word to the vector if it's not empty
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    // Reverse the vector of words
+    reverse(words.begin(), words.end());
+
+    // Output the reversed words separated by single space
+    for (const string& w : words) {
+        cout << w << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
