@@ -1,0 +1,41 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+char firstNonRepeatedCharacter(const string& str) {
+    map<char, int> charCount;
+
+    // Count the occurrences of each character in the input string
+    for (char ch : str) {
+        charCount[ch]++;
+    }
+
+    // Find the first non-repeated character
+    for (char ch : str) {
+        if (charCount[ch] == 1) {
+            return ch; // Return the first non-repeated character
+        }
+    }
+
+    // If no non-repeated character is found, return '\0' (null character)
+    return '\0';
+}
+
+int main() {
+    // Prompt the user to enter a string
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    // Call the function to find and print the first non-repeated character
+    char result = firstNonRepeatedCharacter(input);
+
+    if (result != '\0') {
+        cout << "The first non-repeated character is: " << result << endl;
+    } else {
+        cout << "No non-repeated character found in the string." << endl;
+    }
+
+    return 0;
+}
