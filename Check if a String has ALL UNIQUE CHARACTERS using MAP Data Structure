@@ -1,0 +1,37 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+bool hasAllUniqueCharacters(const string& str) {
+    map<char, int> charCount;
+
+    // Iterate through the characters of the input string
+    for (char ch : str) {
+        // If the character is already in the map, it's not unique
+        if (charCount[ch] > 0) {
+            return false;
+        }
+        // Add the character to the map
+        charCount[ch]++;
+    }
+
+    // All characters are unique
+    return true;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    if (hasAllUniqueCharacters(input)) {
+        cout << "The string has all unique characters." << endl;
+    } else {
+        cout << "The string does not have all unique characters." << endl;
+    }
+
+    return 0;
+}
+
+
