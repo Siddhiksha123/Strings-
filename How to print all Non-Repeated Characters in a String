@@ -1,0 +1,54 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+void printNonRepeatedCharacters(const string& str) {
+    map<char, int> charCount;
+
+    // Count the occurrences of each character in the input string
+    for (char ch : str) {
+        charCount[ch]++;
+    }
+
+    // Print non-repeated characters
+    cout << "Non-Repeated Characters in the String: ";
+    for (char ch : str) {
+        if (charCount[ch] == 1) {
+            cout << ch << " ";
+        }
+    }
+    cout << endl;
+}
+
+int main() {
+    // Prompt the user to enter a string
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    // Call the function to print non-repeated characters
+    printNonRepeatedCharacters(input);
+
+    return 0;
+}
+
+
+
+Explanation:
+
+#include <iostream> and #include <map>: These lines include the necessary header files for input and output operations (iostream) and for using the map container from the Standard Library (map).
+
+using namespace std;: This line allows you to use components from the std namespace (such as map, cout, cin, etc.) without prefixing them with std::.
+
+void printNonRepeatedCharacters(const string& str) { ... }: This function takes a constant reference to a string as input and prints all non-repeated characters in the string.
+
+map<char, int> charCount;: This line declares a map named charCount where the keys are characters (char) and the values are integers (int). It is used to store the count of each character in the input string.
+
+for (char ch : str) { ... }: This loop iterates through the characters of the input string (str). For each character, it increments the count in the charCount map.
+
+for (char ch : str) { ... }: After counting the occurrences, this loop iterates through the characters of the input string again. If the count of a character is 1, it means the character is non-repeated, and it is printed.
+
+int main() { ... }: In the main function, the user is prompted to enter a string. The printNonRepeatedCharacters function is then called with the input string, and it prints all non-repeated characters in the input string.
+
+When you run the program, it will prompt you to enter a string and then print all non-repeated characters in the input string.
