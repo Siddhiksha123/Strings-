@@ -1,0 +1,58 @@
+**** DIRECT EMPTY FUNCTION *******
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter a string with white spaces: ";
+    getline(cin, input);
+
+    string result = ""; // Initialize an empty string to store the result
+
+    // Iterate through the characters of the input string
+    for (char ch : input) {
+        // If the character is not a white space, add it to the result string
+        if (ch != ' ' && ch != '\t' && ch != '\n' && ch != '\r' && ch != '\f' && ch != '\v') {
+            result += ch;
+        }
+    }
+
+    cout << "String after removing white spaces: " << result << endl;
+
+    return 0;
+}
+
+
+
+
+*******size function**********
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string input;
+
+    // Prompt the user to enter a string
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    // Check if the string is empty iteratively
+    if (input.size() == 0) {
+        cout << "The string is empty." << endl;
+    } else {
+        cout << "The string is not empty." << endl;
+        cout << "Length of the string: " << input.size() << endl;
+    }
+
+    return 0;
+}
+
+
+
+n this approach, the size() member function of the std::string class is used to get the number of characters in the string. If the size is 0, the string is empty; otherwise, it is not.
