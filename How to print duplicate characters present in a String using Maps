@@ -1,0 +1,53 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+void printDuplicateCharacters(const string& str) {
+    map<char, int> charCount;
+
+    // Count the occurrences of each character in the input string
+    for (char ch : str) {
+        charCount[ch]++;
+    }
+
+    // Print duplicate characters
+    cout << "Duplicate Characters in the String: ";
+    for (const auto& pair : charCount) {
+        if (pair.second > 1) {
+            cout << pair.first << " ";
+        }
+    }
+    cout << endl;
+}
+
+int main() {
+    // Prompt the user to enter a string
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    // Call the function to print duplicate characters
+    printDuplicateCharacters(input);
+
+    return 0;
+}
+
+
+
+
+Explanation:
+
+#include <iostream> and #include <map>: These lines include the necessary header files for input and output operations (iostream) and for using the map container from the Standard Library (map).
+
+using namespace std;: This line allows you to use components from the std namespace (such as map, cout, cin, etc.) without prefixing them with std::.
+
+void printDuplicateCharacters(const string& str) { ... }: This function takes a constant reference to a string as input and prints all duplicate characters in the string.
+
+map<char, int> charCount;: This line declares a map named charCount where the keys are characters (char) and the values are integers (int). It is used to store the count of each character in the input string.
+
+for (char ch : str) { ... }: The loop iterates through the characters of the input string (str) and populates the charCount map with character counts.
+
+for (const auto& pair : charCount) { ... }: The loop iterates through the key-value pairs in the charCount map. It prints characters with counts greater than 1, indicating duplicate characters in the input string.
+
+int main() { ... }: In the main function, the user is prompted to enter a string. The printDuplicateCharacters function is then called with the input string, and it prints all duplicate characters found in the input string.
