@@ -1,0 +1,44 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+char findMaxOccurringCharacter(const string& str) {
+    map<char, int> charCount;
+
+    // Count the occurrences of each character in the input string
+    for (char ch : str) {
+        charCount[ch]++;
+    }
+
+    char maxChar = '\0'; // Initialize maxChar with null character
+    int maxCount = 0;    // Initialize maxCount with 0
+
+    // Find the character with the maximum count
+    for (const auto& pair : charCount) {
+        if (pair.second > maxCount) {
+            maxChar = pair.first; // Update maxChar with the character having maximum count
+            maxCount = pair.second; // Update maxCount with the maximum count
+        }
+    }
+
+    return maxChar;
+}
+
+int main() {
+    // Prompt the user to enter a string
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    // Call the function to find and print the maximum occurring character
+    char result = findMaxOccurringCharacter(input);
+
+    if (result != '\0') {
+        cout << "The maximum occurring character is: " << result << endl;
+    } else {
+        cout << "No characters found in the string." << endl;
+    }
+
+    return 0;
+}
