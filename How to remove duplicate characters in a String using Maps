@@ -1,0 +1,38 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+string removeDuplicates(const string& str) {
+    map<char, int> charCount;
+
+    // Count the occurrences of each character in the input string
+    for (char ch : str) {
+        charCount[ch]++;
+    }
+
+    string result = ""; // Initialize an empty string to store the result
+
+    // Rebuild the string, skipping characters with counts greater than 1
+    for (char ch : str) {
+        if (charCount[ch] == 1) {
+            result += ch; // Add non-duplicate characters to the result string
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    // Prompt the user to enter a string
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    // Call the function to remove duplicate characters
+    string result = removeDuplicates(input);
+
+    cout << "String after removing duplicates: " << result << endl;
+
+    return 0;
+}
