@@ -1,4 +1,8 @@
 // Accessing elements in the string with map
+
+
+******Using Iterators:*****
+
 #include <iostream>
 #include <map>
 
@@ -17,6 +21,69 @@ int main() {
 
     return 0;
 }
+
+
+
+Explanation:
+
+#include <iostream> and #include <map>: These lines include necessary header files for input and output operations (iostream) and for using the map container from the Standard Library (map).
+
+using namespace std;: This line allows you to use components from the Standard Library (such as map and cout) without prefixing them with std::.
+
+map<string, int> myMap;: This line declares a map named myMap where the keys are of type string and the values are of type int.
+
+myMap["one"] = 1;, myMap["two"] = 2;, myMap["three"] = 3;: These lines insert key-value pairs into the myMap map. The keys are strings ("one", "two", "three"), and the corresponding values are integers (1, 2, 3).
+
+for (auto it = myMap.begin(); it != myMap.end(); ++it) { ... }: This is a loop that iterates through the myMap map using iterators. it is an iterator pointing to pairs of keys and values in the map.
+
+cout << "Key: " << it->first << ", Value: " << it->second << endl;: Inside the loop, this line prints the key and corresponding value of each element in the map. it->first accesses the key, and it->second accesses the value.
+
+return 0;: The program ends and returns 0 to the operating system, indicating successful execution.
+
+Output:
+Key: one, Value: 1
+Key: three, Value: 3
+Key: two, Value: 2
+
+
+
+
+
+
+******Using Subscript Operator ([])*********
+
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<std::string, int> myMap;
+    myMap["one"] = 1;
+    myMap["two"] = 2;
+    myMap["three"] = 3;
+
+    // Accessing elements using the subscript operator
+    std::cout << "Value corresponding to key 'two': " << myMap["two"] << std::endl;
+
+    return 0;
+}
+
+
+NOTE:  
+Remember that if you try to access a key that doesn't exist using the subscript operator, it will create a new element with that key and a default-initialized value. To avoid this, you can use the find function to check if a key exists before accessing it:
+
+std::map<std::string, int> myMap;
+auto it = myMap.find("key");
+
+if (it != myMap.end()) {
+    // Key found, access the value using it->second
+    std::cout << "Value: " << it->second << std::endl;
+} else {
+    // Key not found
+    std::cout << "Key not found in the map." << std::endl;
+}
+
+
+
 
 
 
