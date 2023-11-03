@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter a string with white spaces: ";
+    getline(cin, input);
+
+    // Use erase-remove_if idiom to remove white spaces from the string
+    input.erase(remove_if(input.begin(), input.end(), ::isspace), input.end());
+
+    cout << "String after removing white spaces: " << input << endl;
+
+    return 0;
+}
